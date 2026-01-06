@@ -2,12 +2,12 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 const cors = require("cors");
+const dotenv=require("dotenv");
 
+dotenv.config(); 
 
 mongoose
-  .connect(
-    "mongodb+srv://dawoodbhatti8812_db_user:LYiWURXbqvdKG0SP@cluster0.8ewtyc8.mongodb.net/Ecommerce"
-  )
+  .connect(process.env.CONN_URL)
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
